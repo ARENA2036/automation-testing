@@ -1,0 +1,33 @@
+{
+  "Created by ": "Owais Khan on 2nd July 2025",
+  "name": "tx-umbrella-automationtest",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "clean:allure-results": "rm -rf allure-results",
+    "clean:allure-report": "rm -rf allure-report",
+    "test.demo:chrome:allure": "npm run clean:allure-results && npm run clean:allure-report && ENV=dev npx playwright test --project=Chrome && allure generate allure-results --clean -o allure-report && allure open allure-report",
+    "test.demo:chrome:report": "ENV=dev npx playwright test --project=Chrome && npx playwright show-report && allure generate allure-results --clean -o allure-report && allure open allure-report",
+    "test.fed:chrome:allure": "npm run clean:allure-results && npm run clean:allure-report && ENV=qa npx playwright test --project=Chrome || exitCode=$? && ( [ -d allure-results ] && npx allure generate allure-results --clean -o allure-report && npx allure open allure-report || echo \"❌ No allure-results folder found. Tests may not have run.\" ); exit $exitCode",
+    "record:fed": "dotenv -e ./env/.env.qa -- sh -c 'npx playwright codegen --target=typescript \"$BASE_URL\"' --project=Chrome",
+    "test.prod:chrome:allure": "npm run clean:allure-results && npm run clean:allure-report && ENV=prod npx playwright test --project=Chrome || exitCode=$? && ( [ -d allure-results ] && npx allure generate allure-results --clean -o allure-report && npx allure open allure-report || echo \"❌ No allure-results folder found. Tests may not have run.\" ); exit $exitCode",
+    "record:prod": "dotenv -e ./env/.env.prod -- sh -c 'npx playwright codegen --target=typescript \"$BASE_URL\"' --project=Chrome",
+    "test:user:chrome:prod": "ENV=prod npx playwright test tests/userManagement.spec.ts --project=Chrome"
+  },
+
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@playwright/test": "^1.54.1",
+    "allure-playwright": "^3.3.0",
+    "dotenv-cli": "^8.0.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "dotenv": "^17.0.1"
+  }
+}

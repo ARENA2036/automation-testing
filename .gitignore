@@ -1,0 +1,21 @@
+# Node modules
+node_modules/
+
+# Playwright test output
+test-results/
+playwright-report/
+allure-report/
+allure-results/
+videos/
+screenshots/
+
+# Env files (sensitive info)
+.env*
+env/
+
+# IDE/editor config
+.vscode/
+.idea/
+
+# data/file
+data/users.json

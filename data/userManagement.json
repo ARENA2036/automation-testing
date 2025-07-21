@@ -1,0 +1,8 @@
+[
+  { 
+    "testCase": "Add User successfully",
+    "firstName": "KOwais", 
+    "lastName": "Khan" ,
+    "email": "owais.khan@gamil.com"
+  }
+]
