@@ -26,7 +26,7 @@ export default defineConfig({
   retries: 0,
   use: {
     baseURL: process.env.BASE_URL,
-    headless: false,
+    headless: process.env.CI ? true : false, //Auto headless in CI
     screenshot: 'only-on-failure',
     video: 'retain-on-failure',
   },
