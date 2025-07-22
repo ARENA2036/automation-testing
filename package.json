@@ -5,8 +5,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "local.run.clean:allure-results": "rm -rf allure-results",
-    "local.run.clean:allure-report": "rm -rf allure-report",
+    "clean:allure-results": "rm -rf allure-results",
+    "clean:allure-report": "rm -rf allure-report",
     "local.run.test.demo:chrome:allure": "npm run clean:allure-results && npm run clean:allure-report && ENV=dev npx playwright test --project=Chrome && allure generate allure-results --clean -o allure-report && allure open allure-report",
     "local.run.test.demo:chrome:report": "ENV=dev npx playwright test --project=Chrome && npx playwright show-report && allure generate allure-results --clean -o allure-report && allure open allure-report",
     "local.run.test.fed:chrome:allure": "npm run clean:allure-results && npm run clean:allure-report && ENV=qa npx playwright test --project=Chrome || exitCode=$? && ( [ -d allure-results ] && npx allure generate allure-results --clean -o allure-report && npx allure open allure-report || echo \"❌ No allure-results folder found. Tests may not have run.\" ); exit $exitCode",
