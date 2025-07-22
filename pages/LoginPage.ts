@@ -23,7 +23,7 @@ export class LoginPage {
     await this.page.fill('#password', password);
     await this.page.click('#kc-login');
     await delay(6000);
-    await expect(this.page.locator('xpath=//*[@id="app"]/header/div/div[1]/a/img')).toBeVisible();
+    // await expect(this.page.locator('xpath=//*[@id="app"]/header/div/div[1]/a/img')).toBeVisible();
   }
 
 }

@@ -1,17 +1,30 @@
 import { test, expect } from '@playwright/test';
 import { LoginPage } from '../pages/LoginPage';
-import users from '../data/users.json';
+import dotenv from 'dotenv';
 
+// dotenv.config({ path: './env/.env.prod' });
+
+const testCases = [
+  {
+    TESTCASE: 'Search company and login with valid credentials',
+    username: process.env.VALID_USERNAME!,
+    password: process.env.VALID_PASSWORD!,
+  },
+  {
+    TESTCASE: 'Search company and login with invalid credentials',
+    username: process.env.INVALID_USERNAME!,
+    password: process.env.INVALID_PASSWORD!,
+  },
+];
 
 test.describe('Search Company and Login Application', () => {
-  users.forEach(({ testCase, username, password }) => {
-    test(`Test Case: ${testCase}`, async ({ page }) => {
+  testCases.forEach(({ TESTCASE, username, password }) => {
+    test(TESTCASE, async ({ page }) => {
       const loginPage = new LoginPage(page);
-      
-      await loginPage.goto();
-      // Now company search
-      await loginPage.searchCompany('CX-Operator');
+      const baseURL = process.env.BASE_URL!;
 
+      await page.goto(baseURL);
+      await loginPage.searchCompany('CX-Operator');
       await loginPage.login(username, password);
 
     });
