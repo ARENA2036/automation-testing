@@ -55,10 +55,13 @@ jobs:
           name: allure-report
           path: ./allure-report
 
+      - name: Unzip Allure Report
+        if: always()
+        run: unzip -o ./allure-report/allure-report.zip -d ./allure-report
+
       - name: Deploy Allure Report to GitHub Pages
         if: always()
         uses: peaceiris/actions-gh-pages@v3
         with:
           personal_token: ${{ secrets.DEPLOY_PAT }}
           publish_dir: ./allure-report
-          publish_branch: gh-pages
