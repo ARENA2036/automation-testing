@@ -48,16 +48,19 @@ jobs:
           name: allure-report
           path: ./allure-report
 
-      - name: Download Allure Report artifact
-        if: always()
-        uses: actions/download-artifact@v4
-        with:
-          name: allure-report
-          path: ./allure-report
-
+      # - name: Download Allure Report artifact
+      #   if: always()
+      #   uses: actions/download-artifact@v4
+      #   with:
+      #     name: allure-report
+      #     path: ./allure-report
+      
       - name: Deploy Allure Report to GitHub Pages
+        if: always()
         uses: peaceiris/actions-gh-pages@v3
         with:
-          personal_token: ${{ secrets.DEPLOY_PAT }}
+          personal_token: ${{ secrets.GH_PAT }}
           publish_dir: ./allure-report
           publish_branch: gh-pages
+
+    
