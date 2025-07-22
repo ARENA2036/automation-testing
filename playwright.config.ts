@@ -21,7 +21,7 @@ const desktopFirefoxNoScale = {
 };
 
 export default defineConfig({
-  timeout: 50000,
+  timeout: 30000,
   testDir: './tests',
   retries: 0,
   use: {

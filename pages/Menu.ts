@@ -8,7 +8,7 @@ export class Menu {
   }
 ////// Right Menu//////
   async menuClick() {
-    await this.page.click('css=.UserInfo.MuiBox-root.css-0');
+    await this.page.click('css=#app > header > div > div.cx-main-navigation__children-bottom.MuiBox-root.css-19g4w2v > div > div.UserInfo.MuiBox-root.css-0');
     await delay(5000);
 
   }
