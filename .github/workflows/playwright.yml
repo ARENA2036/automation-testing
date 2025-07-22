@@ -48,6 +48,13 @@ jobs:
           name: allure-report
           path: ./allure-report
 
+      - name: Download Allure Report artifact
+        if: always()
+        uses: actions/download-artifact@v3
+        with:
+          name: allure-report
+          path: ./allure-report
+
       - name: Deploy Allure Report to GitHub Pages
         if: always()
         uses: peaceiris/actions-gh-pages@v3
