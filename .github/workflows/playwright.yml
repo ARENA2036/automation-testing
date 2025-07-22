@@ -32,6 +32,9 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Install Allure CLI v2
+        run: npm install -D allure-commandline@2.20.1
+
       - name: Install Playwright browsers
         run: npx playwright install --with-deps
 
