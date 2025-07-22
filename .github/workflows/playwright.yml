@@ -29,8 +29,7 @@ jobs:
         run: npx playwright install --with-deps
 
       - name: Run Playwright Test Cases
-        run: |
-          test.prod:chrome:allure || true
+        run: npm run github.run.test.prod:chrome:allure
 
       - name: Upload Allure Report
         if: always()
@@ -38,4 +37,3 @@ jobs:
         with:
           name: allure-report
           path: ./allure-report
-
