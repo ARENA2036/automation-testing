@@ -60,4 +60,6 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           personal_token: ${{ secrets.DEPLOY_PAT }}
+          publish_branch: main
           publish_dir: ./allure-report
+          destination_dir: docs
