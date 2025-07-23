@@ -38,8 +38,8 @@ jobs:
       - name: Install Playwright browsers
         run: npx playwright install --with-deps
 
-      - name: Run Playwright Test Cases
-        run: npm run github.run.test.prod:chrome:allure
+      - name: Run Playwright Test Cases with Tag - @e2e
+        run: npm run github.run.test.ag:e2e.prod:chrome:allure
 
       - name: Upload Allure Report
         if: always()

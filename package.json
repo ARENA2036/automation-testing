@@ -12,9 +12,16 @@
     "local.run.test.fed:chrome:allure": "npm run clean:allure-results && npm run clean:allure-report && ENV=qa npx playwright test --project=Chrome || exitCode=$? && ( [ -d allure-results ] && npx allure generate allure-results --clean -o allure-report && npx allure open allure-report || echo \"❌ No allure-results folder found. Tests may not have run.\" ); exit $exitCode",
     "record:fed": "dotenv -e ./env/.env.qa -- sh -c 'npx playwright codegen --target=typescript \"$BASE_URL\"' --project=Chrome",
     "local.run.test.prod:chrome:allure": "npm run clean:allure-results && npm run clean:allure-report && ENV=prod npx playwright test --project=Chrome || exitCode=$? && ( [ -d allure-results ] && npx allure generate allure-results --clean -o allure-report && npx allure open allure-report || echo \"❌ No allure-results folder found. Tests may not have run.\" ); exit $exitCode",
-    "github.run.test.prod:chrome:allure": "npm run clean:allure-results && npm run clean:allure-report && npx playwright test --project=Chrome || true && npx allure generate allure-results --clean -o allure-report",
+    "github.run.test.ag:e2e.prod:chrome:allure": "npm run clean:allure-results && npm run clean:allure-report && npx playwright test --grep '@e2e' --project=Chrome || true && npx allure generate allure-results --clean -o allure-report",
     "record:prod": "dotenv -e ./env/.env.prod -- sh -c 'npx playwright codegen --target=typescript \"$BASE_URL\"' --project=Chrome",
-    "local.run.test:user:chrome:prod": "ENV=prod npx playwright test tests/userManagement.spec.ts --project=Chrome"
+    "local.run.test:user:chrome:prod": "ENV=prod npx playwright test tests/userManagement.spec.ts --project=Chrome",
+    "test.run.tag:e2e": "ENV=prod npx playwright test --grep '@e2e' --project=Chrome",
+    "local.run.test.tag:e2e:chrome:allure": "npm run clean:allure-results && npm run clean:allure-report && ENV=prod npx playwright test --grep '@e2e' --project=Chrome || exitCode=$? && ( [ -d allure-results ] && npx allure generate allure-results --clean -o allure-report && npx allure open allure-report || echo \"❌ No allure-results folder found. Tests may not have run.\" ); exit $exitCode"
+
+
+
+
+
   },
   "keywords": [],
   "author": "",
@@ -25,10 +32,13 @@
     "allure-commandline": "^2.20.1",
     "allure-playwright": "^3.3.0",
     "dotenv-cli": "^8.0.0",
+    "newman": "^4.6.1",
+    "newman-reporter-html": "^1.0.5",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.3"
   },
   "dependencies": {
-    "dotenv": "^17.0.1"
+    "dotenv": "^17.0.1",
+    "winston": "^3.17.0"
   }
 }

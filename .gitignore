@@ -16,3 +16,6 @@ env/
 # IDE/editor config
 .vscode/
 .idea/
+
+# logs
+logs/
