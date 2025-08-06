@@ -28,7 +28,7 @@ jobs:
         with:
           args: >
             -Dsonar.projectKey=tx-test-automation
-            -Dsonar.organization=Test Automation
+            -Dsonar.organization=Test_Automation
             -Dsonar.host.url=https://sonarcloud.io
             -Dsonar.branch.name=feature/sonarcloud-integration
         env:
