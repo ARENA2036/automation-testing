@@ -5,7 +5,20 @@ on:
     branches: [ main ]
   pull_request:
     branches: [ main ]
-
+  workflow_dispatch:
+     inputs:
+      branch:
+        description: 'Branch to run tests on'
+        required: true
+        default: 'main'
+      test_tag:
+        description: 'Test tag to execute (e.g., @e2e, @smoke)'
+        required: true
+        default: '@e2e'
+      environment:
+        description: 'Environment (e.g., prod, staging)'
+        required: true
+        default: 'prod'
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -23,6 +36,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.inputs.branch || 'main' }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
@@ -38,8 +53,14 @@ jobs:
       - name: Install Playwright browsers
         run: npx playwright install --with-deps
 
-      - name: Run Playwright Test Cases with Tag - @e2e
-        run: npm run github.run.test.ag:e2e.prod:chrome:allure
+      - name: Load environment file (.env.<env>)
+        run: |
+          cp .env.${{ github.event.inputs.environment }} .env
+
+      - name: Run Playwright Test Cases
+        run: |
+          echo "Running with tag: ${{ github.event.inputs.test_tag }}"
+          npm run github.run.test.ag:${{ github.event.inputs.test_tag }}.${{ github.event.inputs.environment }}:chrome:allure
 
       - name: Upload Allure Report
         if: always()
