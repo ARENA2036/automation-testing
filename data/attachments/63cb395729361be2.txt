@@ -1,3 +1,0 @@
-[2025-08-07 12:01:02] [INFO] Starting test: Add User successfully
-[2025-08-07 12:01:04] [INFO] Navigating to: https://portal.arena2036-x.de/
-[2025-08-07 12:01:10] [INFO] Logging in

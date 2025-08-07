@@ -1,0 +1,2 @@
+[2025-08-07 12:04:32] [INFO] Starting test: Search company and login with valid credentials
+[2025-08-07 12:04:35] [INFO] Navigating to: https://portal.arena2036-x.de/
