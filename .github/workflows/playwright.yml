@@ -7,10 +7,6 @@ on:
     branches: [ main ]
   workflow_dispatch:
      inputs:
-      branch:
-        description: 'Branch to run tests on'
-        required: true
-        default: 'main'
       test_tag:
         description: 'Test tag to execute (e.g., @e2e, @smoke)'
         required: true
