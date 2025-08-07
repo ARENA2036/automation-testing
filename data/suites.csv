@@ -1,0 +1,4 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Thu Aug 07 10:21:25 UTC 2025","Thu Aug 07 10:21:48 UTC 2025","22660","Chrome","e2e/login.spec.ts","@e2e Search Company and Login Application","","","Search company and login with invalid credentials",""
+"broken","Thu Aug 07 10:21:01 UTC 2025","Thu Aug 07 10:21:31 UTC 2025","30102","Chrome","e2e/userManagement.spec.ts","@e2e User Management - Add Multiple Users","","","Add User: Add User successfully",""
+"passed","Thu Aug 07 10:21:01 UTC 2025","Thu Aug 07 10:21:25 UTC 2025","23515","Chrome","e2e/login.spec.ts","@e2e Search Company and Login Application","","","Search company and login with valid credentials",""
