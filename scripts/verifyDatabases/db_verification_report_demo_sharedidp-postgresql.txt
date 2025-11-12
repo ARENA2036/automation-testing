@@ -1,0 +1,149 @@
+ database_name | connected_user |                                         postgres_version                                          |          check_time           
+---------------+----------------+---------------------------------------------------------------------------------------------------+-------------------------------
+ iamsharedidp  | kcshared       | PostgreSQL 15.6 on x86_64-pc-linux-gnu, compiled by gcc (Debian 10.2.1-6) 10.2.1 20210110, 64-bit | 2025-11-11 11:22:25.550829+00
+(1 row)
+
+ total_schemas 
+---------------
+             3
+(1 row)
+
+ total_tables 
+--------------
+           94
+(1 row)
+
+ table_schema |         table_name         
+--------------+----------------------------
+ public       | admin_event_entity
+ public       | associated_policy
+ public       | authentication_execution
+ public       | authentication_flow
+ public       | authenticator_config
+ public       | authenticator_config_entry
+ public       | broker_link
+ public       | client
+ public       | client_attributes
+ public       | client_auth_flow_bindings
+(10 rows)
+
+              table_name              | approximate_row_count 
+--------------------------------------+-----------------------
+ public.admin_event_entity            |                  1927
+ public.associated_policy             |                    -1
+ public.authentication_execution      |                   672
+ public.authentication_flow           |                   288
+ public.authenticator_config          |                    32
+ public.authenticator_config_entry    |                    32
+ public.broker_link                   |                    -1
+ public.client                        |                   142
+ public.client_attributes             |                   255
+ public.client_auth_flow_bindings     |                    -1
+ public.client_initial_access         |                    -1
+ public.client_node_registrations     |                    -1
+ public.client_scope                  |                   176
+ public.client_scope_attributes       |                   448
+ public.client_scope_client           |                  1259
+ public.client_scope_role_mapping     |                    16
+ public.client_session                |                    -1
+ public.client_session_auth_status    |                    -1
+ public.client_session_note           |                    -1
+ public.client_session_prot_mapper    |                    -1
+ public.client_session_role           |                    -1
+ public.client_user_session_note      |                    -1
+ public.component                     |                   194
+ public.component_config              |                   594
+ public.composite_role                |                   752
+ public.credential                    |                    59
+ public.databasechangelog             |                   134
+ public.databasechangeloglock         |                     2
+ public.default_client_scope          |                   176
+ public.event_entity                  |                  1745
+ public.fed_user_attribute            |                    -1
+ public.fed_user_consent              |                    -1
+ public.fed_user_consent_cl_scope     |                    -1
+ public.fed_user_credential           |                    -1
+ public.fed_user_group_membership     |                    -1
+ public.fed_user_required_action      |                    -1
+ public.fed_user_role_mapping         |                    -1
+ public.federated_identity            |                    -1
+ public.federated_user                |                    -1
+ public.group_attribute               |                    -1
+ public.group_role_mapping            |                    -1
+ public.identity_provider             |                    -1
+ public.identity_provider_config      |                    -1
+ public.identity_provider_mapper      |                    -1
+ public.idp_mapper_config             |                    -1
+ public.keycloak_group                |                    -1
+ public.keycloak_role                 |                   768
+ public.migration_model               |                     1
+ public.offline_client_session        |                    -1
+ public.offline_user_session          |                    -1
+ public.org                           |                    -1
+ public.org_domain                    |                    -1
+ public.policy_config                 |                    -1
+ public.protocol_mapper               |                   544
+ public.protocol_mapper_config        |                  3203
+ public.realm                         |                    16
+ public.realm_attribute               |                   833
+ public.realm_default_groups          |                    -1
+ public.realm_enabled_event_types     |                    79
+ public.realm_events_listeners        |                    16
+ public.realm_localizations           |                    -1
+ public.realm_required_credential     |                    16
+ public.realm_smtp_config             |                   141
+ public.realm_supported_locales       |                    -1
+ public.redirect_uris                 |                    79
+ public.required_action_config        |                    -1
+ public.required_action_provider      |                   176
+ public.resource_attribute            |                    -1
+ public.resource_policy               |                    -1
+ public.resource_scope                |                    -1
+ public.resource_server               |                    -1
+ public.resource_server_perm_ticket   |                    -1
+ public.resource_server_policy        |                    -1
+ public.resource_server_resource      |                    -1
+ public.resource_server_scope         |                    -1
+ public.resource_uris                 |                    -1
+ public.role_attribute                |                    -1
+ public.scope_mapping                 |                    32
+ public.scope_policy                  |                    -1
+ public.user_attribute                |                    -1
+ public.user_consent                  |                    -1
+ public.user_consent_client_scope     |                    -1
+ public.user_entity                   |                    75
+ public.user_federation_config        |                    -1
+ public.user_federation_mapper        |                    -1
+ public.user_federation_mapper_config |                    -1
+ public.user_federation_provider      |                    -1
+ public.user_group_membership         |                    -1
+ public.user_required_action          |                    16
+ public.user_role_mapping             |                   365
+ public.user_session                  |                    -1
+ public.user_session_note             |                    -1
+ public.username_login_failure        |                    -1
+ public.web_origins                   |                    46
+(94 rows)
+
+                      sample_query                      
+--------------------------------------------------------
+ SELECT * FROM public.admin_event_entity LIMIT 5;
+ SELECT * FROM public.associated_policy LIMIT 5;
+ SELECT * FROM public.authentication_execution LIMIT 5;
+(3 rows)
+
+ total_indexes 
+---------------
+           199
+(1 row)
+
+ total_functions 
+-----------------
+               0
+(1 row)
+
+                      status                       
+---------------------------------------------------
+ Database structure and data verified successfully
+(1 row)
+
